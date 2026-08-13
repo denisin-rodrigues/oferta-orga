@@ -1,0 +1,633 @@
+<!doctype html removed by publisher -->
+<title>Dossiê de Avatar — Nicho de Organização Pessoal</title>
+<style>
+  :root {
+    --bg: #efece4;
+    --surface: #faf8f3;
+    --surface-2: #e4e0d5;
+    --ink: #23241f;
+    --muted: #6b6a5f;
+    --border: rgba(35,36,31,0.14);
+    --border-strong: rgba(35,36,31,0.28);
+    --accent: #1f4c46;
+    --accent-soft: #d7e3df;
+    --pain: #8f3527;
+    --pain-soft: #f1ddd7;
+    --desire: #96700f;
+    --desire-soft: #f2e6c8;
+    --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+    --font-body: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #171a17;
+      --surface: #1f231f;
+      --surface-2: #262b25;
+      --ink: #ece8dd;
+      --muted: #9d9c8e;
+      --border: rgba(236,232,221,0.14);
+      --border-strong: rgba(236,232,221,0.3);
+      --accent: #74c2ab;
+      --accent-soft: #23342f;
+      --pain: #e2947f;
+      --pain-soft: #3a2622;
+      --desire: #e3b957;
+      --desire-soft: #362b18;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #171a17;
+    --surface: #1f231f;
+    --surface-2: #262b25;
+    --ink: #ece8dd;
+    --muted: #9d9c8e;
+    --border: rgba(236,232,221,0.14);
+    --border-strong: rgba(236,232,221,0.3);
+    --accent: #74c2ab;
+    --accent-soft: #23342f;
+    --pain: #e2947f;
+    --pain-soft: #3a2622;
+    --desire: #e3b957;
+    --desire-soft: #362b18;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    padding: 0 20px 96px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; }
+
+  /* ---- Cover ---- */
+  .cover {
+    padding: 64px 0 40px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 18px;
+  }
+  h1.title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5vw, 46px);
+    line-height: 1.08;
+    margin: 0 0 14px;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  .dek {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 60ch;
+    margin: 0 0 28px;
+  }
+  .cover-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .cover-meta strong { color: var(--ink); font-weight: 600; }
+
+  /* ---- Section rhythm ---- */
+  section { padding: 52px 0; border-bottom: 1px solid var(--border); }
+  section:last-child { border-bottom: none; }
+  .section-label {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin: 0 0 28px;
+  }
+  .section-label .num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .section-label h2 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+  p { margin: 0 0 16px; max-width: 68ch; }
+  .lede { font-size: 16px; color: var(--muted); max-width: 66ch; }
+
+  /* ---- Pain cards ---- */
+  .pain-grid { display: flex; flex-direction: column; gap: 18px; }
+  .pain-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--pain);
+    padding: 20px 22px;
+  }
+  .pain-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+  .pain-head h3 { font-family: var(--font-display); font-size: 18px; margin: 0; }
+  .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border: 1px solid var(--border-strong);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .tag.high { color: var(--pain); border-color: var(--pain); }
+  .pain-card p { font-size: 14.5px; color: var(--muted); margin-bottom: 10px; }
+  blockquote {
+    margin: 10px 0 0;
+    padding: 10px 14px;
+    background: var(--pain-soft);
+    border: none;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--ink);
+  }
+  blockquote cite { display: block; font-style: normal; font-family: var(--font-mono); font-size: 10.5px; color: var(--muted); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.03em; }
+
+  /* ---- Personas ---- */
+  .persona-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  .persona {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    padding: 24px;
+  }
+  .persona-name { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 0 0 4px; }
+  .persona h3 { font-family: var(--font-display); font-size: 21px; margin: 0 0 12px; }
+  .persona dl { display: grid; grid-template-columns: 100px 1fr; gap: 8px 14px; margin: 14px 0; font-size: 14px; }
+  .persona dt { font-family: var(--font-mono); font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; padding-top: 2px; }
+  .persona dd { margin: 0; }
+  .persona blockquote { background: var(--surface-2); }
+
+  /* ---- Priority matrix ---- */
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+    background: var(--border-strong);
+    border: 1px solid var(--border-strong);
+    min-height: 340px;
+  }
+  .quad {
+    background: var(--surface);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .quad.top { background: var(--accent-soft); }
+  .quad-label { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+  .quad ul { margin: 0; padding-left: 18px; font-size: 13.5px; }
+  .quad li { margin-bottom: 4px; }
+  .axis-label { font-family: var(--font-mono); font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .axis-x { text-align: center; margin-top: 10px; }
+  .axis-y { writing-mode: vertical-rl; transform: rotate(180deg); position: absolute; }
+
+  /* ---- Table ---- */
+  .table-scroll { overflow-x: auto; border: 1px solid var(--border-strong); }
+  table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 13.5px; }
+  th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); background: var(--surface-2); }
+  tr:last-child td { border-bottom: none; }
+  td.price { font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* ---- Opportunity list ---- */
+  .opp { display: flex; gap: 16px; padding: 18px 0; border-top: 1px solid var(--border); }
+  .opp:first-child { border-top: none; }
+  .opp .idx { font-family: var(--font-mono); font-size: 12px; color: var(--accent); padding-top: 3px; min-width: 22px; }
+  .opp h4 { font-family: var(--font-display); font-size: 17px; margin: 0 0 6px; }
+  .opp p { font-size: 14.5px; color: var(--muted); margin: 0; }
+
+  /* ---- Recommendation blocks ---- */
+  .reco {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    padding: 22px 24px;
+    margin-bottom: 16px;
+  }
+  .reco h4 { font-family: var(--font-display); font-size: 17px; margin: 0 0 8px; color: var(--accent); }
+  .reco p { font-size: 14.5px; margin-bottom: 0; }
+  .price-anchor { display: inline-block; font-family: var(--font-mono); background: var(--desire-soft); color: var(--desire); padding: 2px 8px; font-size: 13px; }
+
+  ul.open-q { padding-left: 20px; }
+  ul.open-q li { margin-bottom: 10px; font-size: 14.5px; }
+
+  /* ---- Stat grid ---- */
+  .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border-strong); border: 1px solid var(--border-strong); margin-bottom: 24px; }
+  .stat { background: var(--surface); padding: 20px 22px; }
+  .stat .num-big { font-family: var(--font-display); font-size: 30px; line-height: 1; margin-bottom: 6px; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .stat p { font-size: 13.5px; color: var(--muted); margin: 0; }
+  .stat cite { display: block; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); margin-top: 8px; font-style: normal; opacity: 0.8; }
+  .callout {
+    border: 1px dashed var(--border-strong);
+    padding: 18px 20px;
+    font-size: 14.5px;
+    background: var(--surface-2);
+  }
+  .callout strong { color: var(--accent); }
+  .badge-primary {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: var(--desire-soft);
+    color: var(--desire);
+    padding: 2px 8px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  @media (max-width: 560px) {
+    .stat-grid { grid-template-columns: 1fr; }
+  }
+
+  footer.doc-footer {
+    padding-top: 40px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 620px) {
+    .matrix { min-height: 480px; }
+    .persona dl { grid-template-columns: 1fr; }
+    .persona dt { padding-top: 8px; }
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="cover">
+    <p class="eyebrow">Dossiê de pesquisa · uso interno</p>
+    <h1 class="title">O cérebro sobrecarregado, não a falta de vontade</h1>
+    <p class="dek">Síntese de avatar para o nicho de organização pessoal — construída a partir de comentários reais coletados em YouTube, fóruns e busca, mais panorama competitivo do mercado brasileiro de produtividade. Atualizado com uma segunda rodada de coleta focada em ampliar o público-alvo para uma oferta de baixo ticket.</p>
+    <div class="cover-meta">
+      <span><strong>Última atualização</strong> 12 ago. 2026</span>
+      <span><strong>Fontes primárias</strong> 40+ comentários públicos (YouTube/Reddit/Google)</span>
+      <span><strong>Fontes secundárias</strong> 16 (blogs, imprensa, estudos, concorrência, IBGE/Scielo)</span>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-label"><span class="num">00</span><h2>Metodologia</h2></div>
+    <p class="lede">Os dados primários foram coletados pelo usuário a partir de comentários reais em dois vídeos do YouTube sobre organização e rotina ("Não se Organizar Acaba com a sua Vida", canal Gui Miranda, 589 comentários, 664 mil views / e "6 Dicas de como ser MAIS Organizado / Organizada", canal SejaUmaPessoaMelhor, 504 comentários, 779 mil views), além de buscas no Google e Reddit. Isso foi complementado com pesquisa própria: uma thread do r/productivity, um artigo clínico sobre saúde mental e desorganização, literatura sobre TDAH e organização, e mapeamento dos principais concorrentes brasileiros no nicho.</p>
+    <p class="lede"><strong>Verificação direta (13 ago. 2026):</strong> os dois vídeos foram reabertos com navegador real para confirmar autenticidade — todos os comentários originais foram localizados e batem palavra por palavra com o que foi coletado. A verificação também revelou dados novos, incorporados nesta versão: comentários adicionais de alto engajamento, um concorrente direto não mapeado antes (produto vendido pelo próprio criador de um dos vídeos) e um subsegmento recorrente de estudantes de EAD. A thread do Reddit (r/productivity) segue não acessível por bloqueio de rede.</p>
+    <p class="lede">Aplicamos análise temática sobre os comentários: cada frase foi codificada por dor, desejo, objeção ou transformação, depois agrupada em temas recorrentes. Frequência = quantas vozes distintas tocam no mesmo ponto; impacto = o quanto esse ponto parece decisivo para a decisão de compra.</p>
+  </section>
+
+  <section>
+    <div class="section-label"><span class="num">01</span><h2>As quatro dores centrais</h2></div>
+    <p class="lede">Um padrão domina os dados: quase ninguém culpa "falta de método". A dor é vivida como falha pessoal — vergonha, culpa, exaustão — mesmo quando a causa raiz é clínica, estrutural ou de sobrecarga real de vida.</p>
+
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-head">
+          <h3>1. Sistemas genéricos não sobrevivem a um cérebro ou uma vida fora da curva</h3>
+          <div class="tags"><span class="tag high">alta frequência</span><span class="tag high">alto impacto</span></div>
+        </div>
+        <p>TDAH, TPB, depressão, ansiedade, dissociação, ou simplesmente uma vida sem estrutura (mãe solo, doença na família, desemprego) tornam agendas e planners tradicionais inúteis. A pessoa não falha por preguiça — falha porque o método foi desenhado para outro tipo de cérebro.</p>
+        <blockquote>"O restante da população não consegue operar nesse modo, e não porque não quer, e sim porque não tem como. (…) Que agenda resolve isso?"<cite>comentário público, YouTube</cite></blockquote>
+        <blockquote>"Já comecei uns 20 cursos superiores. Não terminei nenhum. Tomo Metilfenidato mas não funciona SEM um planejamento."<cite>comentário público, YouTube</cite></blockquote>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-head">
+          <h3>2. A culpa é o produto colateral mais caro da desorganização</h3>
+          <div class="tags"><span class="tag high">alta frequência</span><span class="tag high">alto impacto</span></div>
+        </div>
+        <p>A desorganização raramente afeta só quem a vive — ela recai sobre irmãos, cônjuges, colegas de trabalho, gerando atrito relacional. A vergonha ("sou uma inútil") é mais citada do que a perda de tempo em si.</p>
+        <blockquote>"Ela acaba fazendo [as tarefas], porque sabe que sou uma inútil. (…) Não quero ser assim, quando tento mudar sempre volto pra esse ciclo."<cite>comentário público, YouTube</cite></blockquote>
+        <blockquote>"Meu marido tenta há anos me convencer a usar uma agenda (…) esse meu jeito desorganizado acaba atrasando nosso progresso como família."<cite>comentário público, YouTube</cite></blockquote>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-head">
+          <h3>3. Apps e planners digitais já foram tentados — e abandonados</h3>
+          <div class="tags"><span class="tag high">alta frequência</span><span class="tag">impacto médio-alto</span></div>
+        </div>
+        <p>Notion, Google Calendar, apps pagos: quase todo relato inclui uma tentativa fracassada com ferramenta digital, geralmente por distração (redes sociais a um toque de distância) ou por barreira de preço. O papel aparece repetidamente como o único formato que "gruda".</p>
+        <blockquote>"Já tentei fazer no Google Calendar, já tentei no Notion e não deu certo... Uma vez fiz um rascunho no caderno e segui certinho."<cite>comentário público, YouTube</cite></blockquote>
+        <blockquote>"Já tentei baixar apps mas todos que testo tem que pagar e eu sou pobreeeeee."<cite>comentário público, YouTube</cite></blockquote>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-head">
+          <h3>4. O conteúdo existente parece feito para quem já tem tempo sobrando</h3>
+          <div class="tags"><span class="tag">frequência média</span><span class="tag high">alto impacto</span></div>
+        </div>
+        <p>Uma objeção recorrente e específica: dicas de organização soam fáceis para estudante sem filhos, e inviáveis para quem tem trabalho, casa, filhos e trajeto longo. Isso é uma barreira de credibilidade para qualquer oferta que não enderece a vida real do público.</p>
+        <blockquote>"Cara, é fácil pra você estudantezinho. Quero ver mostrar essa facilidade pra um pai de família com trabalho, casa, responsabilidades, etc."<cite>comentário público, YouTube</cite></blockquote>
+        <blockquote>"Trabalho 9h por dia e levo 2h de trajeto todo dia, só sobra tempo pra dormir."<cite>comentário público, YouTube</cite></blockquote>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-head">
+          <h3>5. Não é falta de organização — é excesso de tarefas para uma pessoa só (carga mental)</h3>
+          <div class="tags"><span class="tag high">altíssima frequência</span><span class="tag high">alto impacto</span></div>
+        </div>
+        <p>Esta é a dor de maior alcance encontrada na segunda rodada de coleta — muito mais ampla que a clínica, porque não exige diagnóstico para ser sentida. É o gerenciamento invisível de compromissos, prazos e detalhes domésticos que roda "como um app em segundo plano" na cabeça, mesmo durante o descanso. As estatísticas mais fortes disponíveis sobre isso são de mulheres/mães (ver seção 07), mas a linguagem de "peso mental constante" aparece igualmente nos comentários originais de homens do corpus primário (ver nota de gênero abaixo) — não é uma dor exclusiva de um gênero.</p>
+        <blockquote>"O que muitas mães descrevem não é falta de organização, mas um excesso de tarefas para uma pessoa só."<cite>pesquisa sobre carga mental doméstica</cite></blockquote>
+        <blockquote>"A bagunça pesa na mente mesmo quando você não está olhando para ela — é a sensação de que algo está pendente o tempo todo, mesmo descansando."<cite>literatura sobre carga cognitiva</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label"><span class="num">02</span><h2>Personas</h2></div>
+    <p class="lede">Cinco perfis comportamentais emergem dos dados — definidos pelo que a pessoa já tentou e por que aquilo falhou, não por idade ou renda. A Persona 05 foi adicionada na segunda rodada de pesquisa e é a recomendada como <strong>alvo primário para uma oferta de baixo ticket</strong>: é a que aparece com mais frequência na população em geral, não depende de diagnóstico clínico para se identificar, e ainda assim carrega intensidade emocional real o suficiente para converter.</p>
+
+    <div class="persona-grid">
+      <div class="persona">
+        <p class="persona-name">Persona 01</p>
+        <h3>A Sobrecarregada Clínica</h3>
+        <dl>
+          <dt>Quem é</dt><dd>TDAH, TPB, ansiedade, depressão ou burnout diagnosticados; muitas vezes em terapia e/ou medicada. Já tentou "de tudo".</dd>
+          <dt>O que busca</dt><dd>Não mais um método de produtividade — um sistema que funcione <em>a favor</em> do seu jeito de pensar, não que exija força de vontade que ela sabe que não tem em dias ruins.</dd>
+          <dt>Maior medo</dt><dd>Começar mais um sistema e abandoná-lo como os outros vinte, confirmando a crença "eu sou assim mesmo".</dd>
+          <dt>Gatilho de compra</dt><dd>Uma promessa que reconhece explicitamente a causa clínica/neurológica, não trata desorganização como falha de caráter.</dd>
+        </dl>
+        <blockquote>"Não fico me cobrando a ponto de só poder descansar depois que eu tiver terminado uma lista de afazeres como forma de recompensa."<cite>voz do público, 6 anos de terapia comportamental</cite></blockquote>
+      </div>
+
+      <div class="persona">
+        <p class="persona-name">Persona 02</p>
+        <h3>A Jovem em Ciclo de Procrastinação</h3>
+        <dl>
+          <dt>Quem é</dt><dd>18–25 anos, estudante ou em primeiro emprego, mora com família/colega de quarto. Reconhece o padrão desde a infância, mas nunca quebrou o ciclo.</dd>
+          <dt>O que busca</dt><dd>Parar de ser "o problema" da casa; sair do looping de prometer mudança e recair.</dd>
+          <dt>Maior barreira</dt><dd>Preço. Menciona explicitamente não poder pagar apps ou ferramentas.</dd>
+          <dt>Gatilho de compra</dt><dd>Baixo custo de entrada + prova social de gente parecida com ela ("não sou só eu").</dd>
+        </dl>
+        <blockquote>"Deem dicas de como me organizar (…) já tentei baixar apps mas todos que testo tem que pagar e eu sou pobreeeeee."<cite>voz do público, universitária, 21 anos</cite></blockquote>
+        <blockquote>"Quem veio da EAD só para não me sentir sozinha."<cite>comentário público, YouTube — 937 curtidas, 55 respostas</cite></blockquote>
+        <p style="font-size: 13px; color: var(--muted); margin-top: 10px;">Verificado diretamente na fonte: o subsegmento de <strong>estudantes de ensino a distância (EAD)</strong> aparece de forma recorrente e com altíssimo engajamento ao longo de vários anos de comentários ("Quem veio pq tá perdido de tanto dever na EAD??", "Alguém em 2021? EAD que fala") — sinal forte de que é um gatilho de identificação específico e datável (época de provas/TCC), útil para segmentação de anúncio e para gatilhos sazonais de campanha.</p>
+      </div>
+
+      <div class="persona">
+        <p class="persona-name">Persona 03</p>
+        <h3>O Adulto Funcional Sem Tempo</h3>
+        <dl>
+          <dt>Quem é</dt><dd>Trabalha longas horas, tem trajeto extenso, pode ter negócio próprio ou filhos. Cético com conteúdo genérico de produtividade.</dd>
+          <dt>O que busca</dt><dd>Algo que caiba em uma vida real e cheia, não mais uma lista de tarefas idealizada.</dd>
+          <dt>Objeção central</dt><dd>"Isso é fácil pra quem tem tempo." Precisa ver o método funcionando dentro de restrições reais (turno 6x1, múltiplos papéis).</dd>
+          <dt>Gatilho de compra</dt><dd>Prova de que o sistema exige pouco tempo diário e não depende de disciplina perfeita.</dd>
+        </dl>
+        <blockquote>"Vou começar a trabalhar num subemprego comum 6x1 (…) sei que sobra muito tempo mas desde sempre tenho problemas pra gerenciar o tempo."<cite>voz do público</cite></blockquote>
+      </div>
+
+      <div class="persona">
+        <p class="persona-name">Persona 04</p>
+        <h3>A Convertida (perfil aspiracional / prova social)</h3>
+        <dl>
+          <dt>Quem é</dt><dd>Já encontrou algo que funcionou — geralmente escrever à mão — e se tornou evangelista do hábito.</dd>
+          <dt>O que representa</dt><dd>É o "depois" que a oferta deve vender: não é mais sobre tarefas, é sobre identidade. "Uma vez organizado, você não quer mais parar."</dd>
+          <dt>Uso estratégico</dt><dd>Linguagem e prova social para depoimentos, VSL e página de vendas — mostra a transformação de identidade, não só o resultado prático.</dd>
+        </dl>
+        <blockquote>"Depois que você se organiza, não quer mais parar, porque sua vida só funciona desse jeito kkk."<cite>voz do público</cite></blockquote>
+        <blockquote>"Simplesmente decidi que a partir desse ano eu ia ter uma vida planejada (…) Me deu um alívio."<cite>voz do público</cite></blockquote>
+      </div>
+
+      <div class="persona">
+        <p class="persona-name">Persona 05<span class="badge-primary">alvo primário — low ticket</span></p>
+        <h3>A Sobrecarregada do Dia a Dia</h3>
+        <dl>
+          <dt>Quem é</dt><dd>Trabalha e/ou cuida da casa e de outras pessoas; não se vê como "doente" nem "bagunceira por natureza" — só sente que tem responsabilidade demais para uma pessoa só. Sobreposição direta com as personas 02 e 03, mas sem exigir contexto clínico para se identificar.</dd>
+          <dt>O que busca</dt><dd>Alívio da carga mental constante — parar de carregar tudo "na cabeça" — mais do que um sistema de produtividade sofisticado.</dd>
+          <dt>Maior medo</dt><dd>Investir tempo/dinheiro em mais uma ferramenta e continuar exausta do mesmo jeito.</dd>
+          <dt>Gatilho de compra</dt><dd>Ver a própria experiência nomeada com precisão ("isso tem nome, e não é preguiça") e uma promessa de resultado rápido e barato — não uma transformação de 90 dias.</dd>
+          <dt>Gênero</dt><dd>Persona intencionalmente neutra em gênero. Os dados quantitativos mais fortes disponíveis (86% das mulheres, IBGE) vêm de estudos sobre carga mental doméstica feminina — mas o corpus primário (seção 01) tem presença masculina explícita e relevante (procrastinação, baixa testosterona, sobrecarga de trabalho). Ver nota metodológica no fim desta seção.</dd>
+        </dl>
+        <blockquote>"O que muitas mães descrevem não é falta de organização, mas um excesso de tarefas para uma pessoa só."<cite>pesquisa sobre carga mental doméstica</cite></blockquote>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Nota metodológica sobre gênero:</strong> a base primária de comentários (seção 01) é equilibrada entre homens e mulheres — contando marcadores gramaticais de gênero explícitos no português ("desorganizada", "procrastinador", "rei da procrastinação", "solteiro" etc.), o corpus tem um leve viés feminino, não uma maioria clara. As estatísticas de "carga mental" citadas na seção 07 vêm de uma busca secundária direcionada a termos como "mãe" e "mulher" — o que naturalmente só retornou dados sobre esse recorte, sem provar que a audiência real seja majoritariamente feminina. Decisão adotada neste dossiê: manter a persona e a promessa <strong>neutras em gênero</strong>, usando a carga mental como gancho emocional (por ser a dor de maior alcance) sem restringir copy, imagens ou segmentação de anúncio a um único gênero.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label"><span class="num">03</span><h2>Matriz de prioridade</h2></div>
+    <p class="lede">Com a segunda rodada de dados, a dor de maior frequência absoluta passou a ser a carga mental / excesso de tarefas — ela desloca a inadequação de sistemas genéricos (que segue muito forte, mas é mais específica de quem já tem diagnóstico) como o ponto de entrada mais amplo para a mensagem de um produto de baixo ticket.</p>
+
+    <div class="matrix">
+      <div class="quad top">
+        <span class="quad-label">Alta frequência · Alto impacto — Mensagem principal</span>
+        <ul>
+          <li><strong>Carga mental: excesso de tarefas para uma pessoa só</strong> (novo — maior alcance)</li>
+          <li>Sistemas genéricos não servem para cérebros/vidas fora da curva</li>
+          <li>Culpa e vergonha por não conseguir "ser normal"</li>
+        </ul>
+      </div>
+      <div class="quad top">
+        <span class="quad-label">Baixa frequência · Alto impacto — Segmento de nicho</span>
+        <ul>
+          <li>"Isso é fácil pra quem tem tempo" (pais, jornada dupla)</li>
+          <li>Medo de papéis se perderem/serem vistos por terceiros</li>
+        </ul>
+      </div>
+      <div class="quad">
+        <span class="quad-label">Alta frequência · Baixo-médio impacto — Reforço de oferta</span>
+        <ul>
+          <li>Apps já tentados e abandonados</li>
+          <li>Preferência forte por papel/caderno físico</li>
+        </ul>
+      </div>
+      <div class="quad">
+        <span class="quad-label">Baixa frequência · Baixo impacto — Não priorizar</span>
+        <ul>
+          <li>Preferência estética por planners decorados</li>
+          <li>Comparações pontuais entre apps específicos</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label"><span class="num">04</span><h2>Panorama competitivo</h2></div>
+    <p class="lede">O topo do mercado brasileiro é ocupado por um método generalista e caro; a base é ocupada por cursos institucionais genéricos e gratuitos. Ferramentas específicas para TDAH existem, mas são apps estrangeiros, em geral sem localização para o público brasileiro nem para o registro em papel que os comentários pedem com insistência.</p>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Concorrente</th><th>Posicionamento</th><th>Preço</th><th>Lacuna aberta</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Método Vida Organizada</strong> (Thais Godinho)</td>
+            <td>Ecossistema completo de produtividade pessoal, generalista, autora com PhD</td>
+            <td class="price">R$ 1.597 à vista</td>
+            <td>Não fala a língua clínica/TDAH; ticket alto exclui as personas 01 e 02</td>
+          </tr>
+          <tr>
+            <td>Unova / Fundação Bradesco</td>
+            <td>Curso institucional genérico de organização pessoal</td>
+            <td class="price">Gratuito – baixo custo</td>
+            <td>Conteúdo raso, sem adaptação a contexto emocional/clínico</td>
+          </tr>
+          <tr>
+            <td>Apps de TDAH (Tiimo, ADHD Pal, Procrasterminator)</td>
+            <td>Ferramentas digitais específicas para neurodivergência</td>
+            <td class="price">Assinatura, USD</td>
+            <td>Em inglês/sem localização BR; format digital — vai contra a preferência por papel relatada</td>
+          </tr>
+          <tr>
+            <td>Mentorias individuais (ex: Leilane Verga)</td>
+            <td>Planejamento com propósito, 1:1</td>
+            <td class="price">Alto ticket</td>
+            <td>Não escalável, inacessível para personas sensíveis a preço</td>
+          </tr>
+          <tr>
+            <td><strong>Organize Sem Frescuras</strong> (Rafaela Oliveira)</td>
+            <td>Marca de organização doméstica consolidada desde 2012 (blog, YouTube, livro)</td>
+            <td class="price">R$ 44,90 (livro físico)</td>
+            <td>Foco tático em casa/objetos; não aborda carga mental, emoção ou causa psicológica da bagunça</td>
+          </tr>
+          <tr>
+            <td>Desafios de organização (7–30 dias, Hotmart/Instagram)</td>
+            <td>Formato curto, gamificado, baixo ticket — categoria já validada e popular</td>
+            <td class="price">~R$ 27–97</td>
+            <td>Em geral raso: dicas táticas soltas, sem tese central nem tratamento da causa emocional</td>
+          </tr>
+          <tr>
+            <td><strong>Néctar</strong> (assistente pessoal com IA)</td>
+            <td>Vendido pelo próprio criador do vídeo "Não se Organizar Acaba com a sua Vida" via comentário fixado — app de voz multiplataforma (WhatsApp, Telegram, Alexa), +2.000 usuários</td>
+            <td class="price">R$ 49,90/mês (assinatura)</td>
+            <td>Vai direto contra a preferência por papel/simplicidade do público (seção 01, dor #3) — é IA, é assinatura recorrente, é mais um app. Nenhum comentário do próprio vídeo menciona usar o produto.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede" style="margin-top: 16px;">O Néctar é um dado especialmente valioso: é a oferta que o próprio dono da audiência já está tentando vender para ela — e é exatamente o oposto do que os comentários pedem (assinatura de IA por voz vs. caderno simples e barato). Isso é validação indireta forte de que existe demanda não atendida bem no formato certo.</p>
+  </section>
+
+  <section>
+    <div class="section-label"><span class="num">05</span><h2>Oportunidades</h2></div>
+
+    <div class="opp">
+      <span class="idx">01</span>
+      <div><h4>Vender a causa, não o sintoma</h4><p>Nenhum concorrente mapeado nomeia abertamente TDAH, ansiedade, depressão ou sobrecarga como ponto de partida do método. Reconhecer isso na promessa central é diferenciação imediata e gera identificação instantânea nas personas 01 e 04.</p></div>
+    </div>
+    <div class="opp">
+      <span class="idx">02</span>
+      <div><h4>Papel como escolha deliberada, não como falta de tecnologia</h4><p>A rejeição a apps é ativa e repetida. Um método "offline por design" — com justificativa (menos distração, mais segurança, mais memória motora) — vira argumento de venda, não limitação.</p></div>
+    </div>
+    <div class="opp">
+      <span class="idx">03</span>
+      <div><h4>Preço abaixo da barreira de R$ 1.597</h4><p>O único player de referência está posicionado como produto de luxo. Um preço de entrada acessível (na faixa de curso digital popular) captura as personas 02 e 03, hoje mal atendidas.</p></div>
+    </div>
+    <div class="opp">
+      <span class="idx">04</span>
+      <div><h4>Provar que funciona dentro de uma rotina real e cheia</h4><p>A objeção "fácil pra quem tem tempo" deve ser antecipada na oferta — com estudo de caso ou depoimento de pai/mãe, trabalhador CLT ou dono de negócio, não apenas estudante.</p></div>
+    </div>
+    <div class="opp">
+      <span class="idx">05</span>
+      <div><h4>Mecanismo de recompensa embutido</h4><p>Vários comentários citam recompensa como parte do que sustenta o hábito ("prêmios no fim da noite"). Um sistema com dopamina desenhada — não só listas — é um diferencial de mecanismo único, defensável em copy.</p></div>
+    </div>
+    <div class="opp">
+      <span class="idx">06</span>
+      <div><h4>Carga mental como porta de entrada de massa</h4><p>É a dor de maior alcance encontrada (seção 07) e não exige diagnóstico, idade ou contexto específico para se identificar — é o gancho ideal para um anúncio ou headline de baixo ticket, com a possibilidade de aprofundar depois para quem se identifica com as camadas clínicas mais intensas (personas 01–02).</p></div>
+    </div>
+    <div class="opp">
+      <span class="idx">07</span>
+      <div><h4>Humor de autoironia como formato de anúncio/criativo</h4><p>O comentário de maior engajamento verificado no vídeo 1 não é um depoimento sério — é uma piada autoirônica sobre assistir vídeo de organização em vez de se organizar (1,2 mil curtidas, 41 respostas), e o padrão se repete ("to aqui vendo vídeo de como me organizar pq não me organizei pra ver esse vídeo antes"). Esse tom — reconhecer o ciclo de procrastinação com humor, sem culpa pesada — performa melhor que discurso motivacional sério e é replicável em criativos de anúncio de baixo ticket (Reels/TikTok).</p></div>
+    </div>
+    <div class="opp">
+      <span class="idx">08</span>
+      <div><h4>Sazonalidade EAD / período de provas e TCC</h4><p>O subsegmento de estudantes de EAD sobrecarregados (seção 02, Persona 02) se repete ano após ano com alto engajamento — indica que campanhas cronometradas para períodos de provas, TCC e final de semestre podem ter desempenho acima da média nesse recorte específico.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label"><span class="num">06</span><h2>Recomendações para a oferta <span class="badge-primary">revisado para low ticket</span></h2></div>
+    <p class="lede">Com a Persona 05 como alvo primário, a oferta muda de "método completo para quem já tentou de tudo" para "alívio rápido e barato de um peso que você não sabia que tinha nome". Isso amplia o público sem perder a intensidade emocional que faz a mensagem clínica funcionar — a carga mental é a ponte entre os dois.</p>
+
+    <div class="reco">
+      <h4>Promessa central</h4>
+      <p><strong>"Tire da cabeça em 10 minutos por dia o que está pesando o dia inteiro"</strong> — a transformação vendida não é "virar uma pessoa organizada", é o alívio imediato de descarregar a carga mental. Isso fala com a Persona 05 (o público maior) e ainda ressoa com as personas 01–03 (o público mais intenso), porque a causa raiz é a mesma: peso demais para segurar sozinho na cabeça.</p>
+      <p><strong>Gênero na copy:</strong> manter linguagem e imagens neutras — "quem" carrega peso demais, não "a mulher" que carrega peso demais. As estatísticas femininas (seção 07) podem aparecer como prova de autoridade pontual ("um estudo do IBGE mostra que..."), sem restringir a promessa nem a segmentação de anúncio a um único gênero. Decisão confirmada com o usuário.</p>
+    </div>
+    <div class="reco">
+      <h4>Formato: desafio curto, não curso completo</h4>
+      <p>O formato "desafio" (7 ou 14 dias) já é uma categoria validada e popular no mercado brasileiro (ver seção 04) — combina naturalmente com baixo ticket, alta taxa de conclusão percebida e o mecanismo de recompensa visual (marcar/pintar dias, como no exemplo de "Organizando a Vida"). Um curso completo de meses compete direto com o Método Vida Organizada no ticket errado.</p>
+    </div>
+    <div class="reco">
+      <h4>Posicionamento de preço</h4>
+      <p>Faixa <span class="price-anchor">R$ 27–97</span>, ancorada na categoria de desafios/ebooks já validada — não nos R$ 1.597 do player de referência. Esse ticket é impulso de compra, não decisão ponderada: a promessa precisa ser sentida como "óbvia demais para não tentar" pelo preço.</p>
+    </div>
+    <div class="reco">
+      <h4>Mecanismo único (o "diferente e interessante" pedido no briefing)</h4>
+      <p>Nenhum concorrente mapeado nomeia a causa emocional/cognitiva da desorganização. A psicologia confirma que procrastinação crônica é, com frequência, uma resposta de proteção ao medo de falhar — não preguiça. Nomear isso na oferta ("seu cérebro não está com preguiça, está sobrecarregado — e existe uma forma de aliviar isso em minutos por dia") cria uma categoria própria: descarga de carga mental, não gestão de tempo.</p>
+    </div>
+    <div class="reco">
+      <h4>Formato do produto</h4>
+      <p>Componente físico ou "para imprimir" continua sendo diferencial (dor #3) — mas em baixo ticket, o mais realista é um PDF/planner para imprimir ou um kit digital simples, não um produto físico enviado (custo de logística inviabiliza o ticket baixo). Reservar o físico para um upsell futuro.</p>
+    </div>
+    <div class="reco">
+      <h4>Prova social a usar</h4>
+      <p>Persona 04 (a Convertida) fornece a linguagem de transformação de identidade para depoimentos e VSL — "não é mais sobre tarefas, é sobre quem eu me tornei". Persona 05 fornece a linguagem de entrada, o gancho de identificação inicial ("isso sou eu") que leva ao clique.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label"><span class="num">07</span><h2>Dados que sustentam a mensagem</h2></div>
+    <p class="lede">Números e achados de psicologia com peso de autoridade — úteis como gancho de abertura em VSL, anúncio ou headline, porque validam a dor antes de apresentar a solução.</p>
+
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="num-big">9,6h/semana</div>
+        <p>a mais que mulheres dedicam a tarefas domésticas e cuidado em relação aos homens — 1.118h/ano, o equivalente a 47 dias inteiros de trabalho não remunerado.</p>
+        <cite>IBGE, 2022</cite>
+      </div>
+      <div class="stat">
+        <div class="num-big">86%</div>
+        <p>das mulheres brasileiras consideram ter carga de responsabilidades excessiva.</p>
+        <cite>Pesquisa via CNN Brasil</cite>
+      </div>
+      <div class="stat">
+        <div class="num-big">45,6% vs 36,2%</div>
+        <p>prevalência de transtornos mentais comuns em mulheres com alta sobrecarga doméstica, contra mulheres com baixa sobrecarga.</p>
+        <cite>Revista Brasileira de Epidemiologia / Scielo</cite>
+      </div>
+      <div class="stat">
+        <div class="num-big">45%</div>
+        <p>das mulheres brasileiras têm diagnóstico de ansiedade, depressão ou outro transtorno mental no período pós-pandemia.</p>
+        <cite>Agência Brasil</cite>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Achado de psicologia para reposicionar a culpa:</strong> procrastinação crônica costuma ser uma resposta inconsciente de proteção contra o medo de falhar (perfeccionismo desadaptativo), não preguiça — o cérebro interpreta o risco de um resultado imperfeito como ameaça emocional e evita a tarefa para se proteger. Essa é uma reformulação poderosa para tirar a culpa moral de cima do público e abrir espaço para a solução.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label"><span class="num">08</span><h2>Perguntas em aberto</h2></div>
+    <ul class="open-q">
+      <li>A promessa de "carga mental" deve ser o anúncio/headline principal, com as dores clínicas (TDAH, ansiedade) tratadas como aprofundamento dentro do conteúdo? Ou o inverso? Recomendação deste dossiê: carga mental na entrada, clínico no aprofundamento — mas vale testar as duas ordens em anúncios.</li>
+      <li>Não há dado de disposição de pagamento validado para o público brasileiro deste nicho especificamente — os R$ 27–97 são uma inferência a partir de categorias adjacentes (desafios, ebooks). Uma pré-venda com 2–3 preços testados (ex.: R$ 27 vs R$ 47 vs R$ 67) validaria isso rapidamente.</li>
+      <li>A thread do Reddit (r/productivity) não pôde ser acessada diretamente, nem threads de subreddits brasileiros — vale revisitar manualmente para capturar objeções e a linguagem exata do público em fóruns, que tende a ser mais crua que em comentários de YouTube.</li>
+      <li>Falta validar o canal de aquisição: os comentários seguem vindo majoritariamente de YouTube — isso sugere VSL/vídeo curto como formato de topo de funil mais natural que texto ou imagem estática, especialmente para a Persona 05.</li>
+      <li>Qual o melhor gatilho de urgência para um low ticket de "alívio imediato"? Vale testar oferta por tempo limitado vs. bônus por ordem de chegada (ex.: bônus para as primeiras X pessoas do desafio).</li>
+    </ul>
+  </section>
+
+  <footer class="doc-footer">Dossiê de pesquisa — síntese de avatar · não distribuir externamente sem revisão</footer>
+
+</div>

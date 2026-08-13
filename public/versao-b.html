@@ -1,0 +1,647 @@
+<title>Reset Semanal — Assista antes de decidir</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --ink:#08090C;
+  --amber:#E9A13B;
+  --amber-lt:#F5C06B;
+  --amber-dim:rgba(233,161,59,.13);
+  --green:#3DD68C;
+  --green-dim:rgba(61,214,140,.11);
+  --violet:#9B7BE8;
+  --violet-dim:rgba(155,123,232,.12);
+  --red:#E5484D;
+  --w:#FFFFFF;
+  --w80:rgba(255,255,255,.80);
+  --w55:rgba(255,255,255,.55);
+  --w35:rgba(255,255,255,.35);
+  --w18:rgba(255,255,255,.18);
+  --line:rgba(255,255,255,.08);
+  --card:rgba(255,255,255,.035);
+  --p:'Poppins',system-ui,-apple-system,sans-serif;
+}
+
+html{scroll-behavior:smooth;}
+body{font-family:var(--p);background:var(--ink);color:var(--w);-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;}
+
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(1000px 700px at 50% -10%, rgba(233,161,59,.17), transparent 62%),
+    radial-gradient(800px 600px at 2% 38%, rgba(155,123,232,.075), transparent 58%),
+    radial-gradient(860px 640px at 98% 72%, rgba(61,214,140,.07), transparent 60%),
+    linear-gradient(180deg,#0A0B0F 0%,#08090C 44%,#0B0C10 100%);
+}
+
+section,footer,.bar{position:relative;z-index:1;}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px;}
+.wrap-lg{max-width:960px;margin:0 auto;padding:0 22px;}
+h1,h2,h3{font-weight:800;line-height:1.14;letter-spacing:-.015em;}
+p{line-height:1.72;color:var(--w55);font-weight:400;}
+
+.eyebrow{
+  font-family:ui-monospace,'SF Mono',Menlo,monospace;
+  font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:16px;display:flex;align-items:center;gap:9px;justify-content:center;
+}
+.eyebrow::before,.eyebrow::after{content:'';width:16px;height:1px;background:var(--amber);opacity:.55;}
+
+.btn{
+  display:inline-block;font-family:var(--p);font-weight:700;font-size:15px;letter-spacing:.02em;
+  padding:19px 42px;border-radius:100px;cursor:pointer;border:none;
+  background:linear-gradient(135deg,var(--amber-lt),var(--amber));color:#140D02;
+  box-shadow:0 10px 34px rgba(233,161,59,.28),inset 0 1px 0 rgba(255,255,255,.28);
+  transition:transform .2s cubic-bezier(.2,.8,.3,1),box-shadow .2s;text-align:center;line-height:1.3;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 44px rgba(233,161,59,.4),inset 0 1px 0 rgba(255,255,255,.32);}
+.btn-full{display:block;width:100%;padding:18px;font-size:15px;}
+.btn-ghost{
+  background:transparent;color:var(--w80);border:1px solid var(--w18);box-shadow:none;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.05);border-color:var(--w35);box-shadow:none;}
+.note{display:block;text-align:center;font-size:12px;color:var(--w35);margin-top:11px;}
+
+/* BARRA */
+.bar{
+  background:linear-gradient(90deg,rgba(229,72,77,.14),rgba(233,161,59,.14),rgba(229,72,77,.14));
+  border-bottom:1px solid var(--line);backdrop-filter:blur(14px);position:sticky;top:0;z-index:99;
+  padding:11px 20px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+  font-size:13px;color:var(--w80);font-weight:500;
+}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 1.8s infinite;flex-shrink:0;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.75);}}
+.clock{font-family:ui-monospace,monospace;font-size:14px;font-weight:700;color:var(--amber-lt);
+  background:rgba(0,0,0,.35);border:1px solid var(--w18);border-radius:7px;padding:3px 11px;
+  font-variant-numeric:tabular-nums;letter-spacing:.05em;}
+
+/* ══ 1 · HERO COM VSL ══ */
+.hero{padding:64px 22px 84px;text-align:center;}
+.hero h1{font-size:clamp(28px,5.4vw,48px);font-weight:900;max-width:680px;margin:0 auto 18px;}
+.hero h1 span{background:linear-gradient(120deg,var(--amber-lt),var(--amber));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.hero .sub{font-size:clamp(15px,2.2vw,17px);max-width:520px;margin:0 auto 36px;}
+
+/* VSL */
+.vsl{
+  max-width:780px;margin:0 auto 14px;border-radius:20px;overflow:hidden;
+  border:1px solid rgba(233,161,59,.3);
+  box-shadow:0 30px 90px rgba(0,0,0,.6),0 0 0 6px rgba(233,161,59,.05),inset 0 1px 0 rgba(255,255,255,.08);
+  background:#0B0C11;position:relative;
+}
+.vsl-frame{position:relative;width:100%;padding-top:56.25%;background:linear-gradient(150deg,#12141C,#0A0B10);}
+.vsl-frame iframe,.vsl-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vsl-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;cursor:pointer;}
+.vsl-ph::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 46%, rgba(233,161,59,.14), transparent 58%);
+}
+.play{
+  width:76px;height:76px;border-radius:50%;position:relative;z-index:1;
+  background:linear-gradient(135deg,var(--amber-lt),var(--amber));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 40px rgba(233,161,59,.45);transition:transform .25s;
+}
+.vsl-ph:hover .play{transform:scale(1.07);}
+.play::after{content:'';border-left:22px solid #140D02;border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:6px;}
+.vsl-ph .cap{position:relative;z-index:1;font-size:13.5px;color:var(--w55);font-weight:500;}
+.vsl-ph .cap b{color:var(--amber);font-weight:600;}
+.vsl-hint{font-size:12.5px;color:var(--w35);margin-bottom:28px;display:flex;align-items:center;justify-content:center;gap:7px;}
+.vsl-hint::before{content:'●';color:var(--red);font-size:8px;animation:pulse 1.8s infinite;}
+
+.chips{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:26px;}
+.chip{font-size:12px;color:var(--w55);background:var(--card);border:1px solid var(--line);
+  border-radius:100px;padding:7px 16px;display:flex;align-items:center;gap:7px;}
+.chip b{color:var(--green);font-weight:700;}
+
+/* SEÇÕES */
+.sec{padding:78px 22px;}
+.sec h2{font-size:clamp(24px,4.2vw,38px);margin-bottom:14px;text-align:center;}
+.sec .lead{font-size:16px;max-width:540px;margin:0 auto 42px;text-align:center;}
+
+/* ══ 2 · TRANSFORMAÇÃO ══ */
+.tf{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch;}
+.tf-col{border-radius:20px;padding:28px 26px;border:1px solid var(--line);background:var(--card);}
+.tf-col.before{border-color:rgba(229,72,77,.2);background:linear-gradient(170deg,rgba(229,72,77,.06),transparent 60%);}
+.tf-col.after{border-color:rgba(61,214,140,.26);background:linear-gradient(170deg,var(--green-dim),transparent 60%);}
+.tf-lbl{font-family:ui-monospace,monospace;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px;}
+.tf-col.before .tf-lbl{color:rgba(229,72,77,.85);}
+.tf-col.after .tf-lbl{color:var(--green);}
+.tf-col ul{list-style:none;display:flex;flex-direction:column;gap:13px;}
+.tf-col li{font-size:14px;line-height:1.55;display:flex;gap:11px;align-items:flex-start;}
+.tf-col.before li{color:var(--w55);}
+.tf-col.after li{color:var(--w80);}
+.tf-col.before li::before{content:'×';color:rgba(229,72,77,.8);font-weight:700;flex-shrink:0;font-size:15px;line-height:1.4;}
+.tf-col.after li::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0;font-size:13px;line-height:1.6;}
+.tf-arrow{display:flex;align-items:center;justify-content:center;color:var(--amber);font-size:26px;font-weight:300;}
+
+/* ══ 3 · O QUE VOCÊ RECEBE ══ */
+.deliv{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.dv{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;transition:border-color .25s,transform .25s;}
+.dv:hover{border-color:rgba(233,161,59,.3);transform:translateY(-3px);}
+.dv-ico{width:44px;height:44px;border-radius:13px;background:var(--amber-dim);border:1px solid rgba(233,161,59,.25);
+  display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px;}
+.dv h3{font-size:16px;font-weight:700;color:var(--w);margin-bottom:7px;}
+.dv p{font-size:13.5px;line-height:1.6;}
+.dv .fmt{font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-top:12px;display:block;opacity:.8;}
+
+/* ══ 4 · BENEFÍCIOS ══ */
+.bens{display:flex;flex-direction:column;gap:12px;}
+.bn{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px;display:flex;gap:20px;align-items:flex-start;}
+.bn-n{font-family:ui-monospace,monospace;font-size:11px;font-weight:700;color:var(--green);
+  border:1px solid rgba(61,214,140,.3);background:var(--green-dim);border-radius:8px;padding:7px 10px;flex-shrink:0;}
+.bn h3{font-size:16px;font-weight:700;color:var(--w);margin-bottom:6px;}
+.bn p{font-size:14px;line-height:1.65;}
+.bn .proof{
+  margin-top:11px;font-size:12px;color:var(--w35);padding-left:13px;border-left:2px solid rgba(233,161,59,.35);line-height:1.55;
+}
+.bn .proof b{color:var(--amber);font-weight:600;}
+
+/* ══ 5 · PLANOS ══ */
+.plans{display:grid;grid-template-columns:1fr 1.12fr;gap:18px;align-items:start;}
+.plan{border-radius:22px;padding:34px 30px;border:1px solid var(--line);background:var(--card);position:relative;}
+.plan.pro{
+  border-color:rgba(233,161,59,.4);
+  background:linear-gradient(168deg,rgba(233,161,59,.11),rgba(255,255,255,.025) 48%,rgba(255,255,255,.012));
+  box-shadow:0 30px 90px rgba(0,0,0,.55),0 0 0 5px rgba(233,161,59,.045),inset 0 1px 0 rgba(255,255,255,.07);
+}
+.pbadge{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);white-space:nowrap;
+  background:linear-gradient(135deg,var(--amber-lt),var(--amber));color:#140D02;
+  font-size:10.5px;font-weight:800;letter-spacing:.1em;padding:6px 20px;border-radius:100px;
+  box-shadow:0 6px 20px rgba(233,161,59,.4);
+}
+.pname{font-family:ui-monospace,monospace;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--w35);margin-bottom:8px;}
+.plan.pro .pname{color:var(--amber);}
+.ptit{font-size:20px;font-weight:800;color:var(--w);margin-bottom:6px;letter-spacing:-.01em;}
+.pfor{font-size:13px;color:var(--w35);line-height:1.55;margin-bottom:22px;min-height:40px;}
+.pprice{padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:20px;}
+.pwas{font-size:12.5px;color:var(--w35);margin-bottom:1px;}
+.pnum{font-size:42px;font-weight:900;line-height:1;letter-spacing:-.03em;color:var(--w);}
+.plan.pro .pnum{font-size:52px;background:linear-gradient(120deg,var(--amber-lt),var(--amber));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.pnum sup{font-size:.36em;vertical-align:super;margin-right:2px;}
+.psplit{font-size:12.5px;color:var(--w35);margin-top:5px;}
+.plist{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:24px;}
+.plist li{font-size:13.5px;color:var(--w55);line-height:1.5;display:flex;gap:10px;align-items:flex-start;}
+.plist li::before{content:'✓';color:var(--green);font-weight:800;font-size:12px;flex-shrink:0;line-height:1.5;}
+.plist li.off{color:var(--w18);}
+.plist li.off::before{content:'×';color:var(--w18);font-weight:600;}
+.plist li b{color:var(--w80);font-weight:600;}
+
+.bdiv{
+  display:flex;align-items:center;gap:11px;margin:22px 0 16px;
+  font-family:ui-monospace,monospace;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--violet);
+}
+.bdiv::before,.bdiv::after{content:'';flex:1;height:1px;background:rgba(155,123,232,.28);}
+
+/* ══ 6 · BÔNUS DESTACADO ══ */
+.bonus-sec{padding:78px 22px;}
+.bwrap{
+  border-radius:26px;padding:44px 38px;
+  background:linear-gradient(165deg,var(--violet-dim),rgba(255,255,255,.02) 52%);
+  border:1px solid rgba(155,123,232,.3);
+  box-shadow:0 30px 90px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06);
+}
+.btop{text-align:center;margin-bottom:34px;}
+.btop .tagv{
+  display:inline-block;font-family:ui-monospace,monospace;font-size:10px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--violet);background:rgba(155,123,232,.14);
+  border:1px solid rgba(155,123,232,.32);border-radius:100px;padding:6px 18px;margin-bottom:16px;
+}
+.btop h2{font-size:clamp(22px,3.8vw,34px);margin-bottom:12px;}
+.btop p{font-size:15px;max-width:480px;margin:0 auto;}
+.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:28px;}
+.bcard{
+  background:rgba(255,255,255,.04);border:1px solid rgba(155,123,232,.18);border-radius:16px;padding:22px;
+  transition:border-color .25s,transform .25s;position:relative;
+}
+.bcard:hover{border-color:rgba(155,123,232,.45);transform:translateY(-3px);}
+.bhead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:9px;}
+.bnum{font-family:ui-monospace,monospace;font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--violet);opacity:.8;}
+.bval{font-family:ui-monospace,monospace;font-size:11.5px;color:var(--w35);text-decoration:line-through;white-space:nowrap;}
+.bcard h3{font-size:15.5px;font-weight:700;color:var(--w);margin-bottom:7px;line-height:1.3;}
+.bcard p{font-size:13px;line-height:1.6;}
+.btotal{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+  background:rgba(0,0,0,.28);border:1px solid rgba(155,123,232,.24);border-radius:16px;padding:22px 26px;
+}
+.btotal .l{font-size:13px;color:var(--w55);}
+.btotal .r{font-size:26px;font-weight:900;color:var(--violet);letter-spacing:-.02em;}
+.btotal .free{font-size:13px;color:var(--green);font-weight:700;letter-spacing:.03em;}
+
+/* GARANTIA */
+.guar{max-width:580px;margin:0 auto;text-align:center;
+  background:linear-gradient(160deg,var(--green-dim),transparent 62%);
+  border:1px solid rgba(61,214,140,.24);border-radius:22px;padding:40px 34px;}
+.shield{width:62px;height:62px;margin:0 auto 20px;border-radius:50%;background:var(--green-dim);
+  border:1px solid rgba(61,214,140,.3);display:flex;align-items:center;justify-content:center;font-size:27px;}
+.guar h2{font-size:clamp(21px,3.5vw,28px);margin-bottom:14px;}
+.guar p{font-size:15px;max-width:430px;margin:0 auto 10px;}
+.guar .kicker{color:var(--green);font-weight:600;font-size:15.5px;margin-top:16px;}
+
+/* FAQ */
+.faqs{display:flex;flex-direction:column;gap:9px;max-width:660px;margin:0 auto;}
+.fq{background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:hidden;transition:border-color .2s;}
+.fq.on{border-color:rgba(233,161,59,.3);}
+.fq-q{padding:17px 21px;font-size:14.5px;font-weight:500;color:var(--w80);cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;user-select:none;}
+.fq-q:hover{color:var(--w);}
+.fq-q b{font-size:19px;font-weight:300;color:var(--amber);transition:transform .25s;flex-shrink:0;line-height:1;}
+.fq.on .fq-q b{transform:rotate(45deg);}
+.fq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+.fq.on .fq-a{max-height:260px;}
+.fq-a p{padding:0 21px 18px;font-size:14px;line-height:1.7;}
+
+/* FINAL */
+.final{padding:100px 22px;text-align:center;}
+.final h2{font-size:clamp(26px,5vw,44px);font-weight:900;max-width:620px;margin:0 auto 20px;}
+.final h2 span{background:linear-gradient(120deg,var(--amber-lt),var(--amber));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.final p{font-size:16px;max-width:470px;margin:0 auto 36px;}
+
+footer{border-top:1px solid var(--line);padding:32px 22px;text-align:center;}
+.flinks{display:flex;justify-content:center;gap:26px;margin-bottom:14px;flex-wrap:wrap;}
+.flinks a{font-size:12px;color:var(--w35);text-decoration:none;}
+.flinks a:hover{color:var(--amber);}
+.fleg{font-size:11px;color:rgba(255,255,255,.2);max-width:500px;margin:0 auto;line-height:1.7;}
+
+@media(max-width:760px){
+  .plans{grid-template-columns:1fr;}
+  .plan.pro{order:-1;}
+  .tf{grid-template-columns:1fr;}
+  .tf-arrow{transform:rotate(90deg);padding:4px 0;}
+}
+@media(max-width:620px){
+  .deliv,.bgrid{grid-template-columns:1fr;}
+  .hero{padding:44px 20px 64px;}
+  .sec,.bonus-sec{padding:60px 20px;}
+  .final{padding:74px 20px;}
+  .bwrap{padding:30px 21px;}
+  .guar{padding:30px 21px;}
+  .plan{padding:28px 22px;}
+  .bar{font-size:12px;gap:9px;}
+  .btotal{flex-direction:column;align-items:flex-start;}
+}
+</style>
+
+<!-- BARRA -->
+<div class="bar">
+  <span class="dot"></span>
+  <span>Condição de lançamento acaba em</span>
+  <span class="clock" id="clk">--:--:--</span>
+</div>
+
+<!-- ══ 1 · HERO + VSL ══ -->
+<section class="hero">
+  <div class="wrap-lg">
+    <div class="eyebrow">Reset Semanal</div>
+    <h1>Assista os 6 minutos abaixo e entenda por que <span>nada que você tentou funcionou.</span></h1>
+    <p class="sub">Depois disso, o resto da página só mostra a solução.</p>
+
+    <!--
+      ╔══════════════════════════════════════════════════════════════╗
+      ║  TROCAR PELO SEU VÍDEO                                       ║
+      ║  Substitua a div .vsl-ph inteira por um dos exemplos:        ║
+      ║                                                              ║
+      ║  YouTube:  <iframe src="https://www.youtube.com/embed/ID"    ║
+      ║              allow="autoplay" allowfullscreen></iframe>      ║
+      ║                                                              ║
+      ║  Vturb / Panda / VSL player: cole o embed aqui dentro        ║
+      ║  de .vsl-frame (ele já está em 16:9 responsivo).             ║
+      ╚══════════════════════════════════════════════════════════════╝
+    -->
+    <div class="vsl">
+      <div class="vsl-frame">
+        <div class="vsl-ph">
+          <div class="play"></div>
+          <div class="cap"><b>Clique para assistir</b> · 6 minutos</div>
+        </div>
+      </div>
+    </div>
+    <div class="vsl-hint">Assista com som</div>
+
+    <a href="#planos" class="btn">QUERO TIRAR ESSE PESO</a>
+    <span class="note">A partir de R$47, acesso imediato</span>
+
+    <div class="chips">
+      <div class="chip"><b>✓</b> Não exige disciplina</div>
+      <div class="chip"><b>✓</b> 7 dias de garantia</div>
+      <div class="chip"><b>✓</b> Sem mensalidade</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 2 · TRANSFORMAÇÃO ══ -->
+<section class="sec">
+  <div class="wrap-lg">
+    <div class="eyebrow">A transformação</div>
+    <h2>O que muda a partir do primeiro Reset</h2>
+    <p class="lead">Não é sobre virar outra pessoa. É sobre parar de carregar o que nunca foi pra ser carregado na cabeça.</p>
+
+    <div class="tf">
+      <div class="tf-col before">
+        <div class="tf-lbl">Como é hoje</div>
+        <ul>
+          <li>A lista de pendências roda na cabeça mesmo quando você descansa</li>
+          <li>Você acorda cansado porque a mente não desligou</li>
+          <li>Começa a semana sem saber por onde pegar</li>
+          <li>Adia o que importa e se culpa por isso</li>
+          <li>Sente que está devendo alguma coisa pra alguém o tempo todo</li>
+        </ul>
+      </div>
+      <div class="tf-arrow">→</div>
+      <div class="tf-col after">
+        <div class="tf-lbl">Como fica depois</div>
+        <ul>
+          <li>Tudo que pesava está registrado fora da cabeça, num lugar seguro</li>
+          <li>Você dorme sem a lista girando</li>
+          <li>Segunda começa com 3 coisas claras e com horário</li>
+          <li>O que importa acontece porque tem hora marcada, não porque você lembrou</li>
+          <li>Você sabe o que está em aberto, então para de se sentir devendo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3 · O QUE VOCÊ RECEBE ══ -->
+<section class="sec">
+  <div class="wrap-lg">
+    <div class="eyebrow">O que chega pra você</div>
+    <h2>Você recebe isso em menos de 5 minutos</h2>
+    <p class="lead">Tudo em digital, pronto pra usar hoje. Sem plataforma complicada e sem curso de 40 aulas.</p>
+
+    <div class="deliv">
+      <div class="dv">
+        <div class="dv-ico">📄</div>
+        <h3>Planner Semanal do Método Reset</h3>
+        <p>A folha onde acontece o despejo, o filtro e as âncoras. Vem em duas versões, uma pra semana leve e outra pra semana pesada.</p>
+        <span class="fmt">PDF · imprimir ou usar na tela</span>
+      </div>
+      <div class="dv">
+        <div class="dv-ico">✏️</div>
+        <h3>Diário de Captura</h3>
+        <p>Pra quando a coisa aparece no meio do dia. Você anota em 5 segundos e a cabeça libera na hora, sem virar mais uma pendência.</p>
+        <span class="fmt">PDF · formato de bolso</span>
+      </div>
+      <div class="dv">
+        <div class="dv-ico">🎬</div>
+        <h3>Vídeo de implementação</h3>
+        <p>15 minutos mostrando o primeiro Reset sendo feito na prática, do zero. Você assiste uma vez e já aplica junto.</p>
+        <span class="fmt">Vídeo · 15 min</span>
+      </div>
+      <div class="dv">
+        <div class="dv-ico">🗂️</div>
+        <h3>Acesso vitalício</h3>
+        <p>Comprou uma vez, é seu pra sempre. Toda atualização futura do material entra na sua área sem custo nenhum.</p>
+        <span class="fmt">Sem mensalidade</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 4 · BENEFÍCIOS ══ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow">Por que funciona</div>
+    <h2>Quatro razões com base em evidência</h2>
+    <p class="lead">Não é motivação. Cada peça do método existe por um motivo específico.</p>
+
+    <div class="bens">
+      <div class="bn">
+        <div class="bn-n">01</div>
+        <div>
+          <h3>Tirar da cabeça alivia de verdade</h3>
+          <p>O cérebro mantém tarefas não concluídas ativas em segundo plano, e isso consome atenção mesmo quando você está fazendo outra coisa. Registrar em um lugar confiável encerra esse loop.</p>
+          <div class="proof">Base: literatura de carga cognitiva. <b>A bagunça pesa na mente mesmo quando você não está olhando pra ela.</b></div>
+        </div>
+      </div>
+      <div class="bn">
+        <div class="bn-n">02</div>
+        <div>
+          <h3>Três prioridades, não vinte</h3>
+          <p>Lista longa gera paralisia. Ao reduzir a semana a três âncoras com horário, a decisão deixa de ser feita toda vez que você senta pra trabalhar.</p>
+          <div class="proof">Por que importa: <b>a maior parte dos abandonos de planner acontece por excesso de itens</b>, não por falta de vontade.</div>
+        </div>
+      </div>
+      <div class="bn">
+        <div class="bn-n">03</div>
+        <div>
+          <h3>Papel não compete com notificação</h3>
+          <p>App de organização mora no mesmo aparelho que tem rede social. Escrever à mão ainda ativa memória motora, o que aumenta a retenção do que foi planejado.</p>
+          <div class="proof">Do público: <b>"Já tentei no Google Calendar, já tentei no Notion e não deu certo. Uma vez fiz um rascunho no caderno e segui certinho."</b></div>
+        </div>
+      </div>
+      <div class="bn">
+        <div class="bn-n">04</div>
+        <div>
+          <h3>Feito pra ser retomado, não mantido</h3>
+          <p>Não existe sequência pra quebrar. Se você sumir por um mês, o próximo Reset leva os mesmos 15 minutos do primeiro. É por isso que ele sobrevive a semanas ruins.</p>
+          <div class="proof">Base: <b>procrastinação crônica costuma ser proteção contra o medo de falhar</b>, então qualquer sistema que puna a falha alimenta o próprio problema.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5 · BÔNUS ══ -->
+<section class="bonus-sec">
+  <div class="wrap-lg">
+    <div class="bwrap">
+      <div class="btop">
+        <span class="tagv">Exclusivo do plano Completo</span>
+        <h2>Quatro bônus para os dias em que o método é mais necessário</h2>
+        <p>São exatamente as situações em que todo mundo abandona qualquer sistema. Aqui elas têm protocolo próprio.</p>
+      </div>
+
+      <div class="bgrid">
+        <div class="bcard">
+          <div class="bhead"><span class="bnum">BÔNUS 01</span><span class="bval">R$47</span></div>
+          <h3>Protocolo Dia Ruim</h3>
+          <p>O que fazer quando você sumiu por duas semanas e bateu a vontade de desistir de tudo. Três passos pra voltar sem recomeçar do zero e sem culpa.</p>
+        </div>
+        <div class="bcard">
+          <div class="bhead"><span class="bnum">BÔNUS 02</span><span class="bval">R$37</span></div>
+          <h3>Guia "Procrastinei de Novo"</h3>
+          <p>Como identificar que você entrou em loop de fuga e sair dele em minutos. Inclui a explicação de por que isso acontece, que já tira metade do peso.</p>
+        </div>
+        <div class="bcard">
+          <div class="bhead"><span class="bnum">BÔNUS 03</span><span class="bval">R$67</span></div>
+          <h3>Kit Despejo por Área</h3>
+          <p>12 folhas de despejo separadas por área da vida: casa, trabalho, estudo, dinheiro, saúde e relacionamentos. Pra quando a cabeça está cheia demais pra começar do zero.</p>
+        </div>
+        <div class="bcard">
+          <div class="bhead"><span class="bnum">BÔNUS 04</span><span class="bval">R$37</span></div>
+          <h3>Reset de Emergência</h3>
+          <p>A versão de 5 minutos, feita pra semana de prova, entrega de TCC, mudança ou crise. Quando não dá pra fazer o completo, esse mantém você de pé.</p>
+        </div>
+      </div>
+
+      <div class="btotal">
+        <div>
+          <div class="l">Valor dos bônus somados</div>
+          <div class="r">R$188</div>
+        </div>
+        <div class="free">INCLUSOS SEM CUSTO NO PLANO COMPLETO</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 6 · PLANOS ══ -->
+<section class="sec" id="planos">
+  <div class="wrap-lg">
+    <div class="eyebrow">Escolha seu acesso</div>
+    <h2>Dois jeitos de começar hoje</h2>
+    <p class="lead">Pagamento único nos dois. Sem assinatura, sem renovação automática.</p>
+
+    <div class="plans">
+
+      <div class="plan">
+        <div class="pname">Plano 01</div>
+        <div class="ptit">Essencial</div>
+        <div class="pfor">Pra quem quer só o método, aplicar sozinho e já sentir o alívio da primeira semana.</div>
+
+        <div class="pprice">
+          <div class="pwas">De R$111</div>
+          <div class="pnum"><sup>R$</sup>47</div>
+          <div class="psplit">ou 2x de R$24,90</div>
+        </div>
+
+        <ul class="plist">
+          <li>Planner Semanal do Método Reset</li>
+          <li>Diário de Captura</li>
+          <li>Vídeo de implementação de 15 min</li>
+          <li>Acesso vitalício e atualizações</li>
+          <li class="off">Protocolo Dia Ruim</li>
+          <li class="off">Guia "Procrastinei de Novo"</li>
+          <li class="off">Kit Despejo por Área</li>
+          <li class="off">Reset de Emergência</li>
+        </ul>
+
+        <a href="#" class="btn btn-ghost btn-full">COMEÇAR COM O ESSENCIAL</a>
+      </div>
+
+      <div class="plan pro">
+        <div class="pbadge">MAIS ESCOLHIDO</div>
+        <div class="pname">Plano 02</div>
+        <div class="ptit">Completo</div>
+        <div class="pfor">Pra quem já abandonou outros sistemas antes e quer os protocolos pros dias em que tudo desanda.</div>
+
+        <div class="pprice">
+          <div class="pwas">De R$299</div>
+          <div class="pnum"><sup>R$</sup>97</div>
+          <div class="psplit">ou 12x de R$9,97</div>
+        </div>
+
+        <ul class="plist">
+          <li><b>Tudo do plano Essencial</b></li>
+          <li>Planner Semanal do Método Reset</li>
+          <li>Diário de Captura</li>
+          <li>Vídeo de implementação de 15 min</li>
+          <li>Acesso vitalício e atualizações</li>
+        </ul>
+
+        <div class="bdiv">+ 4 bônus · R$188</div>
+
+        <ul class="plist">
+          <li><b>Protocolo Dia Ruim</b></li>
+          <li><b>Guia "Procrastinei de Novo"</b></li>
+          <li><b>Kit Despejo por Área (12 folhas)</b></li>
+          <li><b>Reset de Emergência</b></li>
+        </ul>
+
+        <a href="#" class="btn btn-full">QUERO O ACESSO COMPLETO</a>
+        <span class="note">Você economiza R$202 nessa condição</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<section class="sec">
+  <div class="wrap">
+    <div class="guar">
+      <div class="shield">🛡️</div>
+      <h2>7 dias ou seu dinheiro de volta</h2>
+      <p>Faça um Reset. Um só. Se você não sentir a cabeça mais leve depois dele, manda uma mensagem e eu devolvo tudo.</p>
+      <p>Sem pergunta. Sem burocracia. Vale pros dois planos.</p>
+      <p class="kicker">O risco é todo meu. O alívio é todo seu.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow">Dúvidas</div>
+    <h2 style="margin-bottom:36px;">Perguntas frequentes</h2>
+
+    <div class="faqs">
+      <div class="fq">
+        <div class="fq-q">Qual plano eu escolho? <b>+</b></div>
+        <div class="fq-a"><p>Se essa é sua primeira tentativa séria, o Essencial já resolve. Se você já começou e abandonou outros sistemas antes, vai o Completo, porque os bônus são justamente os protocolos para os momentos em que a maioria desiste.</p></div>
+      </div>
+      <div class="fq">
+        <div class="fq-q">E se eu esquecer de fazer uma semana? <b>+</b></div>
+        <div class="fq-a"><p>Nada acontece. O método já conta com isso, então não existe sequência pra manter nem streak pra quebrar. Você senta de novo quando lembrar e faz os mesmos 15 minutos.</p></div>
+      </div>
+      <div class="fq">
+        <div class="fq-q">Funciona pra quem trabalha o dia inteiro e tem filho? <b>+</b></div>
+        <div class="fq-a"><p>Funciona melhor ainda, porque quanto mais coisa você carrega, mais peso o despejo tira. São 15 minutos por semana e podem sair no ônibus, na fila ou antes de dormir.</p></div>
+      </div>
+      <div class="fq">
+        <div class="fq-q">Preciso imprimir? <b>+</b></div>
+        <div class="fq-a"><p>Não. Funciona na tela também. O papel é recomendado por um motivo simples: ele não tem notificação. Você recebe os dois formatos e escolhe.</p></div>
+      </div>
+      <div class="fq">
+        <div class="fq-q">Quando recebo o acesso? <b>+</b></div>
+        <div class="fq-a"><p>Em menos de 5 minutos chega o e-mail com o link. O pagamento é processado com criptografia e você tem 7 dias de garantia.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="wrap">
+    <h2>Você carrega isso há anos. <span>Dá pra largar hoje.</span></h2>
+    <p>Quinze minutos por semana. Se não funcionar, você recebe o dinheiro de volta e não perde nada além do peso.</p>
+    <a href="#planos" class="btn" style="font-size:16px;padding:21px 46px;">ESCOLHER MEU PLANO</a>
+    <span class="note">R$47 no Essencial ou R$97 no Completo com os 4 bônus</span>
+  </div>
+</section>
+
+<footer>
+  <div class="flinks">
+    <a href="#">Política de Privacidade</a>
+    <a href="#">Termos de Uso</a>
+    <a href="#">Contato</a>
+  </div>
+  <p class="fleg">Produto digital entregue após confirmação do pagamento. Resultados individuais variam conforme o uso e a dedicação de cada pessoa.</p>
+</footer>
+
+<script>
+(function(){
+  var k='rs_vsl_deadline',e=localStorage.getItem(k);
+  if(!e){e=Date.now()+48*36e5;localStorage.setItem(k,e);}
+  e=+e;
+  var el=document.getElementById('clk');
+  function t(){
+    var d=e-Date.now();
+    if(d<=0){el.textContent='00:00:00';return;}
+    var h=(d/36e5)|0,m=((d%36e5)/6e4)|0,s=((d%6e4)/1e3)|0,z=function(n){return(n<10?'0':'')+n;};
+    el.textContent=z(h)+':'+z(m)+':'+z(s);
+  }
+  t();setInterval(t,1000);
+
+  document.querySelectorAll('.fq-q').forEach(function(q){
+    q.addEventListener('click',function(){
+      var i=q.parentElement,o=i.classList.contains('on');
+      document.querySelectorAll('.fq').forEach(function(x){x.classList.remove('on');});
+      if(!o)i.classList.add('on');
+    });
+  });
+})();
+</script>
