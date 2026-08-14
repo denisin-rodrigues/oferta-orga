@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# pesquisa interna (dados brutos com nomes de usuario reais - nao publicar)
+/research

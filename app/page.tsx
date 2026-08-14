@@ -6,6 +6,7 @@ const TABS = [
   { id: 'dossie',   label: 'Dossiê do Avatar',      src: '/dossie.html',   secao: 'Dossiê do Avatar'      },
   { id: 'versao-a', label: 'Versão A — Sem VSL',     src: '/versao-a.html', secao: 'Versão A — Sem VSL'    },
   { id: 'versao-b', label: 'Versão B — Com VSL',     src: '/versao-b.html', secao: 'Versão B — Com VSL'    },
+  { id: 'versao-c', label: 'Versão C — Otimizada',   src: '/versao-c.html', secao: 'Versão C — Otimizada'  },
 ]
 
 const SECOES = [
@@ -13,6 +14,7 @@ const SECOES = [
   'Dossiê do Avatar',
   'Versão A — Sem VSL',
   'Versão B — Com VSL',
+  'Versão C — Otimizada',
 ]
 
 type Status = 'idle' | 'sending' | 'ok' | 'error'
