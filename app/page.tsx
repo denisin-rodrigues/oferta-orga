@@ -61,9 +61,48 @@ export default function Portal() {
 
   return (
     <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', background: '#080B14', color: '#F1F5F9', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+      <style jsx>{`
+        .tabs-row {
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+        }
+        .tabs-row::-webkit-scrollbar { display: none; }
+        .tabs-row button { flex-shrink: 0; }
+
+        @media (max-width: 860px) {
+          .app-header {
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 14px 16px !important;
+          }
+          .app-body {
+            flex-direction: column !important;
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+          }
+          .doc-col {
+            flex: none !important;
+          }
+          .doc-iframe {
+            flex: none !important;
+            height: 65vh;
+            min-height: 420px;
+          }
+          .feedback-panel {
+            width: 100% !important;
+            flex-shrink: 0 !important;
+            border-left: none !important;
+            border-top: 1px solid rgba(255,255,255,0.08);
+          }
+          .feedback-form {
+            overflow-y: visible !important;
+          }
+        }
+      `}</style>
 
       {/* ─── Header ─── */}
-      <header style={{ flexShrink: 0, borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#0D1120' }}>
+      <header className="app-header" style={{ flexShrink: 0, borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#0D1120' }}>
         <div>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.12em', color: '#F59E0B', textTransform: 'uppercase', marginBottom: 2 }}>
             Reset Semanal
@@ -83,13 +122,13 @@ export default function Portal() {
       </header>
 
       {/* ─── Body ─── */}
-      <div style={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
+      <div className="app-body" style={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
 
         {/* ─── Left: Document viewer ─── */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0 }}>
+        <div className="doc-col" style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0 }}>
 
           {/* Tabs */}
-          <div style={{ flexShrink: 0, borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '10px 16px', display: 'flex', gap: 6, background: '#0A0E1A' }}>
+          <div className="tabs-row" style={{ flexShrink: 0, borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '10px 16px', display: 'flex', gap: 6, background: '#0A0E1A' }}>
             {TABS.map(tab => (
               <button
                 key={tab.id}
@@ -104,6 +143,7 @@ export default function Portal() {
                   transition: 'all 0.15s',
                   background: activeTab === tab.id ? '#F59E0B' : 'transparent',
                   color: activeTab === tab.id ? '#000' : '#94A3B8',
+                  whiteSpace: 'nowrap',
                 }}
                 onMouseEnter={e => {
                   if (activeTab !== tab.id) e.currentTarget.style.background = 'rgba(255,255,255,0.06)'
@@ -120,6 +160,7 @@ export default function Portal() {
           {/* Iframe */}
           <iframe
             key={activeTab}
+            className="doc-iframe"
             src={activeDoc.src}
             style={{ flex: 1, width: '100%', border: 'none' }}
             title={activeDoc.label}
@@ -127,7 +168,7 @@ export default function Portal() {
         </div>
 
         {/* ─── Right: Feedback panel ─── */}
-        <div style={{ width: 380, flexShrink: 0, borderLeft: '1px solid rgba(255,255,255,0.08)', display: 'flex', flexDirection: 'column', background: '#0D1120' }}>
+        <div className="feedback-panel" style={{ width: 380, flexShrink: 0, borderLeft: '1px solid rgba(255,255,255,0.08)', display: 'flex', flexDirection: 'column', background: '#0D1120' }}>
 
           <div style={{ padding: '20px 20px 16px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
             <div style={{ fontSize: 15, fontWeight: 700, color: '#F1F5F9', marginBottom: 4 }}>
@@ -140,6 +181,7 @@ export default function Portal() {
 
           <form
             onSubmit={handleSubmit}
+            className="feedback-form"
             style={{ flex: 1, overflowY: 'auto', padding: 20, display: 'flex', flexDirection: 'column', gap: 14 }}
           >
             {/* Nome */}
