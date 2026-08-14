@@ -175,12 +175,14 @@ p{line-height:1.72;color:var(--w55);font-weight:400;}
   box-shadow:0 6px 20px rgba(233,161,59,.35);
 }
 .incl{list-style:none;margin-bottom:26px;}
-.incl li{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);}
+.incl li{display:flex;flex-direction:column;gap:5px;padding:12px 0;border-bottom:1px solid var(--line);}
 .incl li:last-child{border-bottom:none;}
+.incl-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;}
 .incl .nm{font-size:14px;color:var(--w80);font-weight:500;line-height:1.45;display:flex;gap:10px;align-items:flex-start;}
 .incl .nm::before{content:'✓';color:var(--green);font-weight:800;font-size:13px;flex-shrink:0;}
 .incl .nm em{font-style:normal;color:var(--amber);font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-left:2px;}
 .incl .vl{font-size:13px;color:var(--w35);text-decoration:line-through;white-space:nowrap;flex-shrink:0;font-variant-numeric:tabular-nums;}
+.incl-desc{font-size:12px;color:var(--w35);line-height:1.55;padding-left:23px;}
 .price-row{text-align:center;padding-top:22px;border-top:1px solid var(--line);margin-bottom:26px;}
 .was{font-size:13.5px;color:var(--w35);margin-bottom:2px;}
 .now{font-size:clamp(50px,11vw,68px);font-weight:900;line-height:1;letter-spacing:-.03em;
@@ -234,7 +236,7 @@ footer{border-top:1px solid var(--line);padding:32px 22px;text-align:center;}
   .bar{font-size:12px;gap:9px;}
   .step{padding:22px 20px;gap:16px;}
   .why{padding:20px 21px;}
-  .incl li{flex-direction:column;gap:3px;}
+  .incl-row{flex-direction:column;gap:3px;}
   .incl .vl{align-self:flex-start;}
 }
 </style>
@@ -250,8 +252,8 @@ footer{border-top:1px solid var(--line);padding:32px 22px;text-align:center;}
 <section class="hero">
   <div class="wrap">
     <div class="eyebrow center">Reset Semanal</div>
-    <h1>Sua cabeça não foi feita pra <span>guardar tudo isso.</span></h1>
-    <p>Não é preguiça. Não é falta de disciplina. É <b>carga mental</b>, e existe um jeito de tirar ela de lá em 15 minutos por semana.</p>
+    <h1>Em 15 minutos, tire da cabeça a lista que não te deixa <span>descansar de verdade.</span></h1>
+    <p>Não é preguiça. Não é falta de disciplina. É <b>carga mental</b>. A seguir, o mecanismo de 3 passos que esvazia ela da sua cabeça — sem outro app pra abandonar, sem agenda nova pra travar.</p>
     <a href="#oferta" class="btn">QUERO TIRAR ESSE PESO</a>
     <span class="note">Acesso imediato por R$47</span>
     <div class="chips">
@@ -299,9 +301,10 @@ footer{border-top:1px solid var(--line);padding:32px 22px;text-align:center;}
 <!-- 5 · MECANISMO -->
 <section class="sec">
   <div class="wrap">
-    <div class="eyebrow">O método</div>
-    <h2>Três movimentos. Quinze minutos. Uma vez por semana.</h2>
-    <p class="lead">É simples de propósito. Complexo você já tentou, e não foi por acaso que não deu certo.</p>
+    <div class="eyebrow">O mecanismo por trás</div>
+    <h2>O Ciclo de Descarga Mental: 3 passos que esvaziam a cabeça de verdade</h2>
+    <p class="lead">Não é força de vontade, é mecanismo. A psicologia chama de <b style="color:var(--w80);font-weight:600;">descarga cognitiva</b>: tirar a informação da sua memória de trabalho e colocar num lugar externo confiável é o que desliga o "app rodando em segundo plano" na sua cabeça. É isso que os 3 passos abaixo fazem, nessa ordem específica.</p>
+    <p class="lead" style="margin-bottom:36px;font-size:14.5px;color:var(--w35);">Na prática: uma folha — impressa ou na tela — que você preenche em 15 minutos, uma vez por semana. Nada de plataforma, nada de curso de 40 aulas.</p>
 
     <div class="steps">
       <div class="step">
@@ -394,11 +397,26 @@ footer{border-top:1px solid var(--line);padding:32px 22px;text-align:center;}
       <div class="tag">ACESSO COMPLETO</div>
 
       <ul class="incl">
-        <li><span class="nm">Planner Semanal do Método Reset</span><span class="vl">R$37</span></li>
-        <li><span class="nm">Diário de Captura para o meio do dia</span><span class="vl">R$27</span></li>
-        <li><span class="nm">Vídeo de implementação de 15 min</span><span class="vl">R$47</span></li>
-        <li><span class="nm">Protocolo Dia Ruim <em>bônus</em></span><span class="vl">R$27</span></li>
-        <li><span class="nm">Guia "Procrastinei de Novo" <em>bônus</em></span><span class="vl">R$37</span></li>
+        <li>
+          <div class="incl-row"><span class="nm">Planner Semanal do Método Reset</span><span class="vl">R$37</span></div>
+          <p class="incl-desc">A folha onde acontece o Despejo, o Filtro e a Âncora — o material principal, em PDF pra imprimir ou usar na tela.</p>
+        </li>
+        <li>
+          <div class="incl-row"><span class="nm">Diário de Captura para o meio do dia</span><span class="vl">R$27</span></div>
+          <p class="incl-desc">Pra quando a coisa aparece no meio do dia. Você anota em 5 segundos e a cabeça libera na hora, sem virar mais uma pendência.</p>
+        </li>
+        <li>
+          <div class="incl-row"><span class="nm">Vídeo de implementação de 15 min</span><span class="vl">R$47</span></div>
+          <p class="incl-desc">O primeiro Reset sendo feito na prática, do zero. Você assiste uma vez e já aplica junto.</p>
+        </li>
+        <li>
+          <div class="incl-row"><span class="nm">Protocolo Dia Ruim <em>bônus</em></span><span class="vl">R$27</span></div>
+          <p class="incl-desc">O que fazer quando você sumiu por duas semanas e bateu vontade de desistir de tudo. Três passos pra voltar sem recomeçar do zero e sem culpa.</p>
+        </li>
+        <li>
+          <div class="incl-row"><span class="nm">Guia "Procrastinei de Novo" <em>bônus</em></span><span class="vl">R$37</span></div>
+          <p class="incl-desc">Como identificar que você entrou no loop de fuga e sair dele em minutos — com a explicação de por que isso acontece.</p>
+        </li>
       </ul>
 
       <div class="price-row">
