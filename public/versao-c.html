@@ -117,6 +117,16 @@ p{line-height:1.72;color:var(--w55);font-weight:400;}
 .center .lead{margin-left:auto;margin-right:auto;}
 
 /* ══ DOR — identificação ══ */
+.promises{display:flex;flex-direction:column;gap:10px;margin:24px 0 28px;}
+.promise-bubble{align-self:flex-start;background:var(--card);border:1px solid var(--line);border-radius:100px;padding:10px 22px;font-size:14px;font-style:italic;color:var(--w80);}
+.promise-bubble:nth-child(2){margin-left:26px;}
+.promise-bubble:nth-child(3){margin-left:52px;}
+.dor-story{font-size:16px;color:var(--w55);margin-bottom:22px;max-width:600px;}
+.dor-story b{color:var(--w80);font-weight:600;}
+.empathy{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 28px;margin-bottom:8px;max-width:600px;}
+.empathy p{font-style:italic;font-size:14.5px;color:var(--w80);line-height:1.7;margin-bottom:10px;}
+.empathy p:last-child{margin-bottom:0;}
+.empathy b{font-style:normal;color:var(--w);font-weight:700;}
 .pains{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:30px;}
 .pain{background:#0B0C11;padding:19px 24px;display:flex;gap:16px;align-items:center;transition:background .2s;}
 .pain:hover{background:#101219;}
@@ -332,8 +342,25 @@ footer{border-top:1px solid var(--line);padding:32px 22px;text-align:center;}
 <section class="sec">
   <div class="wrap">
     <div class="eyebrow">O que está pesando</div>
-    <h2>Não é falta de força de vontade. É coisa demais pra uma cabeça só.</h2>
-    <p class="lead">Você já refez a mesma lista de tarefas três vezes no mesmo dia. Montou um sistema bonito num app qualquer e sumiu de lá em dois dias. Deitou pensando em tudo que ficou pra trás e se sentiu "preguiçosa" por isso, mesmo trabalhando o dia inteiro, cuidando de casa, de filho, de TDAH, de ansiedade, ou só de uma vida cheia demais pra qualquer planner genérico dar conta.</p>
+    <h2>Quantas vezes você já prometeu que dessa vez ia ser diferente?</h2>
+
+    <div class="promises">
+      <div class="promise-bubble">"Segunda eu começo."</div>
+      <div class="promise-bubble">"Amanhã eu organizo."</div>
+      <div class="promise-bubble">"Mês que vem eu coloco minha vida nos trilhos."</div>
+    </div>
+
+    <p class="dor-story">Mas... você <b>procrastinou.</b> <b>Desanimou</b> no meio do caminho. A motivação que parecia tão forte de manhã simplesmente evaporou antes do almoço. E no fim do dia, aquela lista de tarefas continuava lá, te encarando, te lembrando de tudo que <b>você não fez.</b></p>
+
+    <div class="empathy">
+      <p>Está tudo bem. Você não tá sozinho nisso.</p>
+      <p><b>Eu sei porque já vivi isso mais vezes do que gostaria de admitir.</b></p>
+      <p>Numa sexta-feira chuvosa, depois das 18h, olhei pra minha lista de tarefas e percebi: tinha feito só uma coisa. O mínimo.</p>
+      <p>E veio aquela frustração que você conhece bem...</p>
+      <p>Deitei no sofá, coloquei uma música pra me acalmar e fiquei olhando pro teto, me perguntando: "Por que é tão difícil fazer o que precisa ser feito?"</p>
+      <p><b>"Eu só queria ter um dia produtivo, caramba!"</b></p>
+      <p>E aposto que você já se sentiu assim também.</p>
+    </div>
 
     <div class="pains">
       <div class="pain"><i>01</i><span>Você planeja tudo... e não cumpre quase nada, a lista sempre volta maior no dia seguinte</span></div>
